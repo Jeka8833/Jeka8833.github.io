@@ -1,0 +1,3 @@
+[submodule "TNTClient"]
+	path = TNTClient
+	url = https://github.com/MightySeswatha/TNTClient.git
