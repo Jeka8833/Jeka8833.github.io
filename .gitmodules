@@ -1,3 +1,6 @@
 [submodule "TNTClient"]
 	path = TNTClient
 	url = https://github.com/MightySeswatha/TNTClient.git
+[submodule "Jeka8833.github.io"]
+	path = Jeka8833.github.io
+	url = https://github.com/Jeka8833/Jeka8833.github.io.git
