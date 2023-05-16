@@ -12,7 +12,9 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.4/font/bootstrap-icons.min.css"
           integrity="sha512-yU7+yXTc4VUanLSjkZq+buQN3afNA4j2ap/mxvdr440P5aW9np9vIr2JMZ2E5DuYeC9bAoH9CuCR7SJlXAa4pg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.4.3/decimal.min.js"
+            integrity="sha512-WWzCZDQZ23GuPVKPowBGCF6MhoA1az8iJk/Gjh2a5S3jeeNEvKJHgGPMyDofeUtcOeHeI3AbsPFUILWHfoRP8w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="scripts/themes.js"></script>
 </head>
 <body>
@@ -39,13 +41,13 @@
                         <hr class="d-lg-none text-white-50">
                     </ul>
                     <ul class="navbar-nav">
-<!--                        <li class="nav-item">
-                            <button class="nav-link">Підсвітити керування</button>
-                        </li>
-                        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
-                            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
-                            <hr class="d-lg-none my-2 text-white-50">
-                        </li>-->
+                        <!--                        <li class="nav-item">
+                                                    <button class="nav-link">Підсвітити керування</button>
+                                                </li>
+                                                <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+                                                    <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+                                                    <hr class="d-lg-none my-2 text-white-50">
+                                                </li>-->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle theme-icon-active" type="button"
                                data-bs-toggle="dropdown">
@@ -81,28 +83,28 @@
     </header>
 
     <main class="container-xxl">
-        <div class="row row-cols-1 row-cols-md-2 justify-content-evenly h-100">
-            <div class="col" style="max-width: 500px">
+        <div class="row row-cols-1 row-cols-lg-2 justify-content-evenly h-100">
+            <div class="col mb-5" style="max-width: 500px">
                 <div class="card h-100 shadow">
                     <canvas id="powerSupply" class="card-img-top"></canvas>
                     <div class="card-body m-0 p-0"></div>
-                    <div class="card-footer text-body-secondary">
+                    <div class="card-footer text-body-secondary text-center">
                         Джерело живдення
                     </div>
                 </div>
             </div>
-            <div class="col" style="max-width: 500px">
+            <div class="col mb-5" style="max-width: 500px">
                 <div class="card h-100 shadow">
                     <canvas id="voltmeter" class="card-img-top"></canvas>
                     <div class="card-body m-0 p-0"></div>
-                    <div class="card-footer text-body-secondary">
+                    <div class="card-footer text-body-secondary text-center">
                         Вольтметер
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="mt-5 d-flex justify-content-center">
+        <div class="d-flex justify-content-center">
             <div class="card col-sm-5 shadow">
                 <div class="card-body">
                     <h3 class="card-title">Налаштування стенду</h3>
@@ -141,13 +143,13 @@
 
                     <p class="card-text mt-3 mb-1">Заміна діода D1 на D2:</p>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="diode" id="d1Diode">
+                        <input class="form-check-input" type="radio" name="diode" id="d1Diode" checked>
                         <label class="form-check-label" for="d1Diode">
                             Використовуємо діод D1
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="diode" id="d2Diode" checked>
+                        <input class="form-check-input" type="radio" name="diode" id="d2Diode">
                         <label class="form-check-label" for="d2Diode">
                             Використовуємо діод D2
                         </label>
@@ -167,7 +169,11 @@
     </main>
 </div>
 
-
+<div class="toast-container position-fixed bottom-0 end-0">
+    <div class="alert alert-danger invisible" role="alert" id="voltageLimit">
+        Цей симулятор не може вимірювати більшу напругу, вибачте
+    </div>
+</div>
 <div class="container-xxl flex-grow-0 flex-shrink-1 border-top mt-3">
     <footer class="py-1 m-1">
         <div class="d-flex align-items-center flex-column flex-sm-row justify-content-between">
@@ -177,6 +183,7 @@
     </footer>
 </div>
 <script src="compresed/util.js"></script>
+<script src="scripts/lambertw.js"></script>
 <script src="compresed/components/spinner.js"></script>
 <script src="compresed/components/button.js"></script>
 <script src="compresed/components/list.js"></script>
